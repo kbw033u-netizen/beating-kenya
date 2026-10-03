@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f1e8">
+    <title>BEAT / KENYA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="#top" aria-label="Beat Kenya home">BEAT<span>/</span>KENYA</a>
+      <div class="topbar-note"><span class="status-dot"></span> NAIROBI, EAST AFRICA <span class="topbar-divider">/</span> ORIGINAL SOUND LAB</div>
+      <div class="topbar-index">SESSION 001 <span>·</span> 16 STEPS</div>
+    </header>
+
+    <main id="top">
+      <section class="intro">
+        <div class="intro-copy">
+          <p class="eyebrow">A LITTLE ROOM FOR BIG LOW END</p>
+          <h1>Make it<br><span>hit different.</span></h1>
+          <p class="intro-description">Build a raw, melodic Nairobi trap groove. Find your pocket, then make it yours.</p>
+        </div>
+        <div class="reference-note">
+          <span class="reference-label">REFERENCE ENERGY</span>
+          <span class="reference-artists">Toxic Lyricali <i>+</i> Thirtyfour Brick</span>
+          <span class="reference-detail">Mood and momentum, not melodies or lyrics.</span>
+        </div>
+        <div class="intro-stamp" aria-hidden="true"><span>254</span><small>BEAT<br>DEPT.</small></div>
+      </section>
+
+      <section class="studio" aria-label="Beat maker">
+        <div class="studio-header">
+          <div class="studio-title"><span class="live-indicator" id="liveIndicator"></span><h2>STEP SEQUENCER</h2></div>
+          <div class="transport">
+            <button class="transport-play" id="playButton" type="button" aria-label="Play beat"><span class="play-icon" aria-hidden="true"></span><span id="playLabel">PLAY</span></button>
+            <button class="transport-stop" id="stopButton" type="button" aria-label="Stop beat"><span class="stop-icon" aria-hidden="true"></span>STOP</button>
+          </div>
+        </div>
+
+        <div class="control-strip">
+          <label class="control tempo-control" for="tempo">
+            <span class="control-label">TEMPO <span class="unit">BPM</span></span>
+            <span class="range-line"><input id="tempo" type="range" min="60" max="180" value="140"><output id="tempoValue">140</output></span>
+          </label>
+          <label class="control swing-control" for="swing">
+            <span class="control-label">SWING <span class="unit">%</span></span>
+            <span class="range-line"><input id="swing" type="range" min="0" max="60" value="18"><output id="swingValue">18</output></span>
+          </label>
+          <label class="control key-control" for="keySelect">
+            <span class="control-label">ROOT NOTE</span>
+            <select id="keySelect" aria-label="Bass root note">
+              <option value="A">A minor</option>
+              <option value="C">C minor</option>
+              <option value="D">D minor</option>
+              <option value="F">F minor</option>
+              <option value="G">G minor</option>
+            </select>
+          </label>
+          <label class="control groove-control" for="grooveSelect">
+            <span class="control-label">STARTING POCKET</span>
+            <select id="grooveSelect" aria-label="Choose a starting groove">
+              <option value="dandora">Dandora bounce</option>
+              <option value="matatu">Night matatu</option>
+              <option value="estate">Estate after dark</option>
+            </select>
+          </label>
+        </div>
+
+        <section class="audio-source" aria-label="Analyze a recording">
+          <div class="audio-source-copy">
+            <span class="control-label">FROM A RECORDING</span>
+            <span id="sourceStatus">Import a short clip or record from your mic.</span>
+          </div>
+          <div class="audio-source-actions">
+            <label class="source-button" for="audioFile">IMPORT AUDIO</label>
+            <input id="audioFile" type="file" accept="audio/*" hidden>
+            <button id="recordButton" class="source-button" type="button">RECORD</button>
+            <button id="analyzeButton" class="source-button analyze-button" type="button" disabled>FIND THE GROOVE</button>
+          </div>
+          <audio id="sourcePreview" controls hidden></audio>
+        </section>
+
+        <div class="visualizer-wrap">
+          <canvas id="visualizer" aria-label="Animated beat waveform"></canvas>
+          <div class="visualizer-caption"><span>LOW END / HIGH INTENT</span><span id="barCount">BAR 01 <b>·</b> BEAT 01</span></div>
+        </div>
+
+        <div class="sequencer" id="sequencer">
+          <div class="step-ruler" aria-hidden="true"><span></span><span>1</span><span></span><span></span><span></span><span>2</span><span></span><span></span><span></span><span>3</span><span></span><span></span><span></span><span>4</span><span></span><span></span><span></span></div>
+          <div id="trackRows"></div>
+        </div>
+
+        <div class="studio-footer">
+          <div class="footer-meta"><span><i class="legend-dot active-dot"></i> ON</span><span><i class="legend-dot"></i> OFF</span><span class="footer-hint">TAP A STEP TO FLIP IT</span></div>
+          <div class="edit-actions">
+            <button id="randomButton" class="text-action" type="button" title="Generate a fresh groove"><span aria-hidden="true">↻</span> RANDOMIZE</button>
+            <button id="clearButton" class="text-action clear-action" type="button" title="Clear all steps"><span aria-hidden="true">×</span> CLEAR</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>BUILT FROM SILENCE. MADE FOR THE SUB.</span><span>NAIROBI <b>·</b> KE</span></footer>
+    </main>
+  </body>
+</html>
